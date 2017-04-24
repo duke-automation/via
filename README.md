@@ -1,6 +1,6 @@
 ## Introduction
 
-Via is a Ruby on Rails application that leverages the Boomerang javascript library in order to measuring end-user network performance
+Via is a Ruby on Rails application that leverages the Boomerang javascript library in order to measure end-user network performance
 
 ## Features
 * Captures end-user network performance through a series of small download tests and from the HTML5 Navigation Timing API
