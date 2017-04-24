@@ -26,4 +26,4 @@ Via is a Ruby on Rails application that leverages the Boomerang javascript libra
 
 ### License
 
-[MIT License](https://github.com/duke-automation/via/LICENSE.txt)
+[MIT License](https://github.com/duke-automation/via/blob/master/LICENSE.txt)
