@@ -1,0 +1,31 @@
+/h2 Client Statistics
+/br
+= form_tag stats_path, method: :get do
+  div class="container"
+    div class='col-md-3'
+      div class="form-group"
+        = label_tag :start_date, 'Start Date/Hour'
+        div class='input-group date' id='datetimepicker6'
+          = text_field_tag :start_date, params[:start_date], class: 'form-control', data: { date_format: 'MM-DD-YYYY HH:00' }, :include_blank => true
+          span class="input-group-addon"
+            span class="glyphicon glyphicon-calendar"
+    div class='col-md-1'
+      div class="form-group"
+        = label_tag :plus_hours, 'Hours(+)'
+        div class='input-group'
+          = select_tag :plus_hours, options_for_select((1..8), params[:plus_hours]), class: "form-control", :include_blank => true
+    div class='col-md-3'
+      div class="form-group"
+        = label_tag :bogus, '.', :style => 'color:#FFFFFF;'
+        div class='input-group'
+          = submit_tag("Submit", :class => "btn btn-primary btn-sm")
+          - if params[:start_date].present? or params[:plus_hours].present?
+            = link_to "Clear", stats_path, class: "btn btn-secondary btn-sm"
+h2 Network Stats
+br
+br
+
+h4 Via Host - Network Bandwidth (avg/mbps)
+= column_chart @bandwidth, height: "200px"
+h4 Via Host - Network Latency (avg/ms)
+= column_chart @nwlatency, height: "200px"

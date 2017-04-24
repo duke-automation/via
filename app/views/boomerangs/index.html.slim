@@ -1,0 +1,51 @@
+= form_tag boomerangs_path, method: :get do
+  div style="float:left;"
+  div class="container"
+    div class='col-md-3'
+      div class="form-group"
+        = label_tag :start_date, 'Start Date'
+        div class='input-group date' id='datetimepicker6'
+          = text_field_tag :start_date, params[:start_date], class: 'form-control', data: {date_format: 'MM-DD-YYYY HH:00'}, :include_blank => true
+          span class="input-group-addon"
+            span class="glyphicon glyphicon-calendar"
+    div class='col-md-3'
+      div class="form-group"
+        = label_tag :end_date, 'End Date'
+        div class='input-group date' id='datetimepicker7'
+          = text_field_tag :end_date, params[:end_date], class: 'form-control', data: {date_format: 'MM-DD-YYYY HH:00'}, :include_blank => true
+          span class="input-group-addon"
+            span class="glyphicon glyphicon-calendar"
+    div class='col-md-3'
+      div class='form-group'
+        = label_tag :query, 'Search Term'
+        div class="input-group"
+          = text_field_tag :query, params[:query], class: 'form-control', autocomplete: 'off', :include_blank => true
+    div class='col-md-2'
+      div class="form-group"
+        = label_tag :bogus, '.', :style => 'color:#FFFFFF;'
+        div class='input-group'
+          = submit_tag("Submit", :class => "btn btn-primary btn-sm")
+          - if params[:start_date].present? && params[:end_date].present?
+            = link_to "Clear", boomerangs_path, class: "btn btn-secondary btn-sm"
+    br
+h2 Transactions
+
+.viapagination
+  = will_paginate (@boomerangs)
+
+table class="table table-striped table-hover" width="100%"
+  thead
+    tr
+      th Client IP
+      th Beacon
+      th Latency (ms)
+      th Bandwidth (mbps)
+      th Request Time
+  tbody
+    - @boomerangs.each do |boomerang|
+      tr
+        td = boomerang.clientip
+        td = boomerang.host
+        td = boomerang.lat
+        td = (boomerang.bw * 8.0 / 1024.0 / 1024.0).round(2)
+        td = boomerang.req_time

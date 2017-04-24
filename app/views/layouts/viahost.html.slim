@@ -1,0 +1,36 @@
+doctypehtml
+html
+  head
+    = include_gon(:init => true)
+    meta charset="UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    = favicon_link_tag 'favicon.ico'
+    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "c3"
+    = stylesheet_link_tag "chart"
+    = javascript_include_tag "application"
+    = javascript_include_tag "boomerang-viahost.js"
+    = javascript_include_tag "boomerang-run-viahost.js"
+    = javascript_include_tag "boomerang-viahost-results.js"
+    = javascript_include_tag "chart.min.js"
+
+body
+  div id="viahost_results"
+  div id="overlay" class="overlay"
+    img src="/images/ajax-loader-circle.gif" alt="Loading"
+    br
+  div style="margin-left: 45px;" id="barlegend"
+  div style="width: 100%; display: table;"
+    div style="display: table-row"
+      div style="width: 600px; display: table-cell;"
+        canvas id="bwbarchart"
+      div
+      div style="display: table-cell;"
+        canvas id="barchart"
+  javascript:
+    VIAHOST.page_ready();
+  javascript:
+      $(document).on({
+          ajaxStart: function() { $('#overlay').fadeIn(); },
+          ajaxStop: function() { $('#overlay').fadeOut(); }
+      });

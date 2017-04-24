@@ -1,0 +1,30 @@
+/* flickr pagination style */
+.viapagination {
+  text-align: right;
+  padding: 0.3em;
+  cursor: default; }
+.viapagination a, .viapagination span, .viapagination em {
+  padding: 0.1em 0.3em; }
+.viapagination .disabled {
+  color: #aaaaaa; }
+.viapagination .current {
+  font-style: normal;
+  font-weight: bold;
+  color: #FFB70F; }
+.viapagination a {
+  border: 1px solid #dddddd;
+  color: #0063dc;
+  text-decoration: none; }
+.viapagination a:hover, .viapagination a:focus {
+  border-color: #003366;
+  background: #0063dc;
+  color: white; }
+.viapagination .page_info {
+  color: #aaaaaa;
+  padding-top: 0.8em; }
+.viapagination .previous_page, .viapagination .next_page {
+  border-width: 2px; }
+.viapagination .previous_page {
+  margin-right: 1em; }
+.viapagination .next_page {
+  margin-left: 1em; }
