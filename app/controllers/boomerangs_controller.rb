@@ -3,7 +3,7 @@ class BoomerangsController < ApplicationController
   def mystatus
     @start_range = (Time.now - 14400).strftime("%b%d %l:%M%P")
     @end_range = (Time.now).strftime("%b%d %l:%M%P")
-    @beacon = 'localhost'
+    @beacon = APP_CONFIG['beacon_host']
     if Boomerang.exists?(:host => @beacon)
       @viahostabw = (Boomerang.avg_beacon(@beacon,'bw') or 0).round(2)
       @viahostalat = (Boomerang.avg_beacon(@beacon,'lat') or 0).round(2)
@@ -12,7 +12,7 @@ class BoomerangsController < ApplicationController
   end
 
   def stats
-    beacon = 'localhost'
+    beacon = APP_CONFIG['beacon_host']
     if params[:start_date].present?
       tstart = DateTime.strptime(params[:start_date], '%m-%d-%Y %H:%M').change(:offset => "-0400")
       tend = DateTime.strptime(params[:start_date], '%m-%d-%Y %H:%M').change(:offset => "-0400") + params[:plus_hours].to_i.hours
@@ -35,8 +35,8 @@ class BoomerangsController < ApplicationController
     gon.req_time = Time.now.to_i
     gon.uri_path = request.filtered_path
     gon.host = request.host
-    gon.viahostbw = ((Boomerang.avg_beacon('localhost','bw') or 0) * 8 / 1024 / 1024).round(2)
-    gon.viahostlat = (Boomerang.avg_beacon('localhost','lat') or 0).round(2)
+    gon.viahostbw = ((Boomerang.avg_beacon(APP_CONFIG['beacon_host'],'bw') or 0) * 8 / 1024 / 1024).round(2)
+    gon.viahostlat = (Boomerang.avg_beacon(APP_CONFIG['beacon_host'],'lat') or 0).round(2)
     render layout: 'viahost'
   end
 

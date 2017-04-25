@@ -1,5 +1,7 @@
 defaults: &DEFAULTS
 
+  beacon_host localhost
+
 development:
   <<: *DEFAULTS
 

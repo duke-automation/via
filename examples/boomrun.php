@@ -15,7 +15,6 @@
 <script src="boomerang/plugins/rt.js" type="text/javascript"></script>
 <script src="boomerang/howtos.js" type="text/javascript"></script>
 <script src="js/main.js"></script>
-<script type="application/javascript" src="http://localhost:3000/myip"></script>
 <script type="text/javascript">
 BOOMR.init({
           beacon_url: "https://your-via-site.edu/boomerangs/boompost",
@@ -32,7 +31,7 @@ BOOMR.init({
           }
     }).
     addVar({
-      "clientip": myip,
+      "clientip": "<?php echo $_SERVER['REMOTE_ADDR'] ?>",
       "useragent": "<?php echo $_SERVER['HTTP_USER_AGENT'] ?>",
       "http_ver": "<?php echo $_SERVER['SERVER_PROTOCOL'] ?>",
       "method": "<?php echo $_SERVER['REQUEST_METHOD'] ?>",

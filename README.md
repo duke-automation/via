@@ -10,9 +10,9 @@ Via is a Ruby on Rails application that leverages the Boomerang javascript libra
 * Boomerang measurements can be run against the same server where the ViA application is homed or can be run remotely and posted back to the ViA server
 
 ## Setup / Configuration
-* Clone Git repository and install/run application on a server
-* Have end users access the /mystatus page in ViA to run tests and record metrics
-* (alternatively) Embed Boomerang javascript library and configuration in a remote server page and post results back to your ViA server
+* Clone Git repository and install/run application on server
+* Have end users access the ViA /mystatus page to run tests and record metrics
+* (alternatively) Embed Boomerang javascript library and configuration in a remote web page and post results back to ViA
 * Key Boomerang values are the 'base_url' value and the 'beacon_url' value (see /examples)
   * 'base_url' = where you want your end-users to target for network tests
   * 'beacon_url' = where you want the results of those test posted

@@ -19,4 +19,4 @@ VIAHOST.init(
       'method': gon.rmethod
       'req_time': gon.req_time
       'uri_path': gon.uri_path
-      'host': "localhost"
+      'host': gon.host
