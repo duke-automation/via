@@ -1,6 +1,6 @@
 == VIA LICENSE INFO
 
-Copyright (c) 2015-2017 Stan Francis
+Copyright (c) 2015-2017 Duke University
 
 (The MIT License)
 
